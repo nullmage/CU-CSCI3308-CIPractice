@@ -50,17 +50,17 @@ bool coord_2d_eq(const coord_2d_t* a, const coord_2d_t* b){
 
 void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b){
 
-    /* Input Checks */
+    /* input checks */
     if(!mid){
-        DEBUG(__FILE__, __LINE__, __func__, "'mid' must not be NULL");
+        debug(__file__, __line__, __func__, "'mid' must not be null");
         return;
     }
     if(!a){
-        DEBUG(__FILE__, __LINE__, __func__, "'a' must not be NULL");
+        debug(__file__, __line__, __func__, "'a' must not be null");
         return;
     }
     if(!b){
-        DEBUG(__FILE__, __LINE__, __func__, "'b' must not be NULL");
+        debug(__file__, __line__, __func__, "'b' must not be null");
         return;
     }
 
@@ -71,9 +71,19 @@ void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b
 }
 
 double coord_2d_area_triangle(const coord_2d_t *a, const coord_2d_t *b, const coord_2d_t *c){
-    double a1 = a->x * (b->y - c->y);
-    double a2 = b->x * (c->y - a->y);
-    double a3 = c->x * (a->y - b->y);
-    double area = (a1 + a2 +a3 ) / 2;
-    return abs(area);
+    /* input checks */
+    if(!c){
+        debug(__file__, __line__, __func__, "'c' must not be null");
+        return;
+    }
+    if(!a){
+        debug(__file__, __line__, __func__, "'a' must not be null");
+        return;
+    }
+    if(!b){
+        debug(__file__, __line__, __func__, "'b' must not be null");
+        return;
+    }
+
+    return abs( ( a->x * (b->y - c->y)) + (b->x * (c->y - a->y))+ (c->x * (a->y - b->y) ) / 2);
 }
