@@ -49,41 +49,43 @@ bool coord_2d_eq(const coord_2d_t* a, const coord_2d_t* b){
 }
 
 void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b){
-
-    /* input checks */
+    /*
+    / input checks /
     if(!mid){
-        debug(__file__, __line__, __func__, "'mid' must not be null");
+        DEBUG(__file__, __line__, __func__, "'mid' must not be null");
         return;
     }
     if(!a){
-        debug(__file__, __line__, __func__, "'a' must not be null");
+        DEBUG(__file__, __line__, __func__, "'a' must not be null");
         return;
     }
     if(!b){
-        debug(__file__, __line__, __func__, "'b' must not be null");
+        DEBUG(__file__, __line__, __func__, "'b' must not be null");
         return;
     }
-
+    */
     /* Maths */
     mid->x = ((a->x + b->x) / 2.0 );
     mid->y = ((a->y + b->y) / 2.0 );
 
 }
 
+
 double coord_2d_area_triangle(const coord_2d_t *a, const coord_2d_t *b, const coord_2d_t *c){
-    /* input checks */
+   /*  input checks /
     if(!c){
-        debug(__file__, __line__, __func__, "'c' must not be null");
-        return;
+        DEBUG(__file__, __line__, __func__, "'c' must not be null");
+        return NAN;
     }
     if(!a){
-        debug(__file__, __line__, __func__, "'a' must not be null");
-        return;
+        DEBUG(__file__, __line__, __func__, "'a' must not be null");
+        return NAN;
     }
     if(!b){
-        debug(__file__, __line__, __func__, "'b' must not be null");
-        return;
+        DEBUG(__file__, __line__, __func__, "'b' must not be null");
+        return NAN;
     }
-
+    */
     return abs( ( a->x * (b->y - c->y)) + (b->x * (c->y - a->y))+ (c->x * (a->y - b->y) ) / 2);
 }
+
