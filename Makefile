@@ -31,4 +31,4 @@ clean:
 	$(RM) *~
 
 test: geometry_test
-    ./geometry_test
+	./geometry_test
